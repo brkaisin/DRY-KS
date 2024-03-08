@@ -1,0 +1,35 @@
+<h2>{{ formGroup.controls.name.value }}</h2>
+
+<div class="form-container">
+  <div class="form-row">
+    <label for="name">Name:</label>
+    <app-history-wrapper
+      [currentValue]="currentValue.name"
+      [history]="history.name"
+    >
+      <ng-template #content let-actionButtonsTemplate="actionButtonsTemplate" let-colorStyle="colorStyle">
+        <input [class]="colorStyle" id="name" type="text" [formControl]="formGroup.controls.name">
+        <ng-container *ngTemplateOutlet="actionButtonsTemplate"></ng-container>
+      </ng-template>
+    </app-history-wrapper>
+  </div>
+
+  <div class="form-row">
+    <label for="address">Address:</label>
+    @if (companyB12.address && history.address.maybeHistory) {
+      <app-address-form
+        id="address"
+        [formControl]="formGroup.controls.address"
+        [history]="history.address.maybeHistory"
+        [currentValue]="companyB12.address">
+      </app-address-form>
+    } @else {
+      <span>No address yet</span>
+    }
+  </div>
+
+  <div class="form-row">
+    <label for="turnover">Turnover:</label>
+    <input id="turnover" type="number" [formControl]="formGroup.controls.turnover">
+  </div>
+</div>

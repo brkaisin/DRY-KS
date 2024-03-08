@@ -17,7 +17,7 @@ describe('AppComponent', () => {
   it(`should have the 'dry-code-angular-typescript' title`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
-    expect(app.title).toEqual('dry-code-angular-typescript');
+    expect(app.title).toEqual('DRY code with Angular and TypeScript');
   });
 
   it('should render title', () => {

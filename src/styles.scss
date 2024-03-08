@@ -1,1 +1,40 @@
-/* You can add global styles to this file, and also import other style files */
+.form-container {
+  display: grid;
+  grid-template-columns: auto auto;
+  gap: 10px;
+  align-items: center; /* This ensures vertical alignment */
+  width: 400px;
+}
+
+.form-row {
+  display: contents;
+}
+
+label {
+  text-align: right;
+  padding-right: 10px;
+}
+
+input, app-address-form {
+  width: 100%;
+  /* Adjust input height if necessary */
+}
+
+/* History styles */
+
+// Mixins are used to avoid repeating the same code (DRY principle)
+@mixin border-color($color) {
+  border: 3px solid $color !important;
+}
+
+.border-red {
+  @include border-color(rgb(255, 0, 0));
+}
+
+.border-orange {
+  @include border-color(rgb(255, 165, 0));
+}
+
+.border-green {
+  @include border-color(rgb(0, 128, 0));
+}

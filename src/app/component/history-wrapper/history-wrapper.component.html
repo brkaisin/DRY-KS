@@ -1,0 +1,16 @@
+<ng-container
+  *ngTemplateOutlet="
+        content;
+        context: {
+            actionButtonsTemplate: actionButtonsTemplate,
+            colorStyle: colorStyle
+        }
+    "
+></ng-container>
+
+<ng-template #actionButtonsTemplate>
+  <button>
+    Some action depending on the history state
+  </button>
+</ng-template>
+
