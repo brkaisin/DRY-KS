@@ -5,8 +5,8 @@ import { HistoryManager } from "../history-manager";
 import { Change } from "../../util/business/history-util";
 import { AddressHistory } from "../../util/business/history-models";
 import { FormGroupFor } from "../../util/business/form-util";
-import { companyB12 } from "../../util/business/data-mock";
 import { NgIf } from "@angular/common";
+import { TwoWayBindingFormHelper } from "../../util/business/two-way-binding-form-helper";
 
 @Component({
   selector: 'app-address-form',
@@ -33,16 +33,20 @@ export class AddressFormComponent extends HistoryManager<Address, AddressHistory
     street: this.formBuilder.control(''),
   })
 
+  private twoWayBindingHelper: TwoWayBindingFormHelper<Address, typeof this.formGroup> =
+    new TwoWayBindingFormHelper(this.formGroup);
+
 
   writeValue(address: Address): void {
-    this.patchValueInForm(address);
+    this.twoWayBindingHelper.writeValueF(address);
   }
 
   registerOnChange(fn: (_: typeof this.formGroup.value) => void): void {
-    this.formGroup.valueChanges.subscribe(fn);
+    this.twoWayBindingHelper.registerOnChangeF(fn);
   }
 
   registerOnTouched(fn: () => void): void {
+    this.twoWayBindingHelper.registerOnTouchedF(fn);
   }
 
   private static extractChanges(history: AddressHistory): Array<Change<unknown>> {
@@ -52,6 +56,4 @@ export class AddressFormComponent extends HistoryManager<Address, AddressHistory
   constructor(private formBuilder: NonNullableFormBuilder) {
     super(AddressFormComponent.extractChanges);
   }
-
-  protected readonly companyB12 = companyB12;
 }
