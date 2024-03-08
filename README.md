@@ -1,4 +1,6 @@
-# DryCodeAngularTypescript
+> :warning: **Warning**: This README is a work in progress. It is not yet complete.
+
+# DRY Code with Angular and Typescript
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.2.1.
 
