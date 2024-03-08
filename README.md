@@ -1,4 +1,4 @@
-> :warning: **Warning**: This README is a work in progress. It is not yet complete.
+> :warning: **Warning**: This README, as well as this repo, is a work in progress. It is not yet complete.
 
 # DRY Code with Angular and Typescript
 
